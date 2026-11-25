@@ -32,6 +32,12 @@ public:
     Q_PROPERTY(QString homeUrl READ homeUrl CONSTANT)
     Q_PROPERTY(QString bugReportUrl READ bugReportUrl CONSTANT)
 
+    // A distribution's own switch for its pages: the key of the [Distribution] group of plasma-welcomerc, read as
+    // KConfig reads it (the user's file, then each folder of XDG_CONFIG_DIRS), false when no file sets it. A
+    // distribution can set it for a kind of machine, for example from a session script that puts a folder with its own
+    // plasma-welcomerc in front of XDG_CONFIG_DIRS, and a page can read it in `show`.
+    Q_INVOKABLE bool flag(const QString &key) const;
+
 private:
     KOSRelease m_release;
 };

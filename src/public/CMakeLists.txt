@@ -33,6 +33,7 @@ ecm_target_qml_sources(plasma-welcome-public
 )
 
 target_link_libraries(plasma-welcome-public PRIVATE
+    KF6::ConfigCore
     Qt::Core
     KF6::CoreAddons
     KF6::I18n

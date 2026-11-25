@@ -6,6 +6,9 @@
 
 #include "distro.h"
 
+#include <KConfigGroup>
+#include <KSharedConfig>
+
 Distro::Distro(QObject *parent)
     : QObject(parent)
 {
@@ -29,6 +32,11 @@ QString Distro::homeUrl() const
 QString Distro::bugReportUrl() const
 {
     return m_release.bugReportUrl();
+}
+
+bool Distro::flag(const QString &key) const
+{
+    return KSharedConfig::openConfig(QStringLiteral("plasma-welcomerc"), KConfig::NoGlobals)->group(QStringLiteral("Distribution")).readEntry(key, false);
 }
 
 #include "moc_distro.cpp"

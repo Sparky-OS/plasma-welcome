@@ -57,9 +57,8 @@ QString App::distroPagesDir() const
     return QString::fromLatin1(DISTRO_CUSTOM_PAGE_FOLDER);
 }
 
-QStringList App::distroPages() const
+static QStringList pagesInFolder(const QString &dirname)
 {
-    const QString dirname = QStringLiteral(DISTRO_CUSTOM_PAGE_FOLDER);
     const QDir distroPageDir = QDir(dirname);
 
     if (!distroPageDir.exists() || distroPageDir.isEmpty()) {
@@ -72,6 +71,21 @@ QStringList App::distroPages() const
     }
 
     return pages;
+}
+
+QStringList App::distroPages() const
+{
+    return pagesInFolder(QStringLiteral(DISTRO_CUSTOM_PAGE_FOLDER));
+}
+
+QString App::distroFirstPagesDir() const
+{
+    return QString::fromLatin1(DISTRO_CUSTOM_FIRST_PAGE_FOLDER);
+}
+
+QStringList App::distroFirstPages() const
+{
+    return pagesInFolder(QStringLiteral(DISTRO_CUSTOM_FIRST_PAGE_FOLDER));
 }
 
 // Workaround for lack of appstream info in snaps for advertised items on Discover page

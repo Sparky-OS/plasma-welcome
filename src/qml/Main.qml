@@ -131,6 +131,11 @@ Kirigami.ApplicationWindow {
                 // Fallthrough
 
             case Private.App.Welcome:
+                // Distro-specific pages that come before the built-in ones
+                for (let i in Private.App.distroFirstPages) {
+                    _pushPage(_createPage(Private.App.distroFirstPages[i], true));
+                }
+
                 _pushPage(_createPage("Welcome.qml"));
 
                 _pushPage(_createPage("Network.qml"));
@@ -172,8 +177,9 @@ Kirigami.ApplicationWindow {
                         }
                     }
 
-                    // Try as both a regular page and distro page
-                    if (!tryPage(page) && !tryPage("file://" + Private.App.distroPagesDir + page)) {
+                    // Try as a regular page, then as a distro page of either folder
+                    if (!tryPage(page) && !tryPage("file://" + Private.App.distroPagesDir + page)
+                        && !tryPage("file://" + Private.App.distroFirstPagesDir + page)) {
                         console.warn(warnStrings);
                         _pushPage(_createErrorPage(error, false, true));
                     }

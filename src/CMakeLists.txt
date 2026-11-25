@@ -88,6 +88,7 @@ ecm_target_qml_sources(plasma-welcome
 )
 
 target_compile_definitions(plasma-welcome PRIVATE "DISTRO_CUSTOM_PAGE_FOLDER=\"${DISTRO_CUSTOM_PAGE_FOLDER}\"")
+target_compile_definitions(plasma-welcome PRIVATE "DISTRO_CUSTOM_FIRST_PAGE_FOLDER=\"${DISTRO_CUSTOM_FIRST_PAGE_FOLDER}\"")
 target_compile_definitions(plasma-welcome PRIVATE "DISTRO_CUSTOM_INTRO_FILE=\"${DISTRO_CUSTOM_INTRO_FILE}\"")
 
 target_link_libraries(plasma-welcome PRIVATE

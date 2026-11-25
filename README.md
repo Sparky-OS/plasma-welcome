@@ -73,6 +73,8 @@ To make custom pages visible to the app, place them in `/usr/share/plasma/plasma
 
 These two pages will be added into the wizard, with WelcomeToDistro shown first, and then InstallMediaCodecs.
 
+Pages that should come first, before the built-in "Welcome" page (after the live installer page in a live environment), go in `/usr/share/plasma/plasma-welcome/first-pages/` instead, named the same way. Keep them few: they are what the user sees before anything else.
+
 Custom pages are QML files with a root item that inherit from `Kirigami.Page`. Any content within the page is supported, though to maintain visual consistency with existing pages, it is recommended to use `GenericPage`, `ScrollablePage` or `KCMPage` as the root item and set the `heading` and `description` properties, with any custom content going beneath them. You can reference [existing pages](src/qml/pages) when creating your own.
 
 Because pages are written in QML without support for C++ support code, only functions that can be performed entirely with QML are available. If you have a specific use case that can't be supported with these tools, please [file a bug report](https://bugs.kde.org/enter_bug.cgi?product=plasma-welcome) detailing it.

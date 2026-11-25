@@ -33,6 +33,8 @@ public:
     QString installPrefix() const;
     QString distroPagesDir() const;
     QStringList distroPages() const;
+    QString distroFirstPagesDir() const;
+    QStringList distroFirstPages() const;
     bool isDistroSnapOnly() const;
 
     Q_PROPERTY(Mode mode MEMBER m_mode CONSTANT)
@@ -40,6 +42,8 @@ public:
     Q_PROPERTY(QString installPrefix READ installPrefix CONSTANT)
     Q_PROPERTY(QString distroPagesDir READ distroPagesDir CONSTANT)
     Q_PROPERTY(QStringList distroPages READ distroPages CONSTANT)
+    Q_PROPERTY(QString distroFirstPagesDir READ distroFirstPagesDir CONSTANT)
+    Q_PROPERTY(QStringList distroFirstPages READ distroFirstPages CONSTANT)
     Q_PROPERTY(bool isDistroSnapOnly READ isDistroSnapOnly CONSTANT)
     Q_PROPERTY(QString customIntroText MEMBER m_customIntroText CONSTANT)
     Q_PROPERTY(QString customIntroIcon MEMBER m_customIntroIcon CONSTANT)

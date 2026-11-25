@@ -40,6 +40,7 @@ include(ECMDeprecationSettings)
 include(ECMQtDeclareLoggingCategory)
 
 set(DISTRO_CUSTOM_PAGE_FOLDER "/usr/share/plasma/plasma-welcome/extra-pages/" CACHE STRING "Folder on disk to find custom pages")
+set(DISTRO_CUSTOM_FIRST_PAGE_FOLDER "/usr/share/plasma/plasma-welcome/first-pages/" CACHE STRING "Folder on disk to find custom pages shown before the built-in ones")
 set(DISTRO_CUSTOM_INTRO_FILE "/usr/share/plasma/plasma-welcome/intro-customization.desktop" CACHE STRING "File specifying custom intro content")
 
 file(GLOB_RECURSE ALL_CLANG_FORMAT_SOURCE_FILES *.cpp *.h *.hpp *.c)
